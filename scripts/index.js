@@ -152,6 +152,8 @@ var view = {
         todoLi.id = i;
         todoLi.textContent = todoTextWithCompletion;
         todoLi.appendChild(this.createDeleteButton(i));
+        todoLi.appendChild(this.createEditButton(i));
+        todoLi.appendChild(this.createToggleButton(i));
         todoUL.appendChild(todoLi);
 
     }
@@ -168,6 +170,32 @@ var view = {
     // console.log(deleteButton);
     deleteButton.appendChild(deleteIcon);
     return deleteButton;
+  },
+  createEditButton: function(id){
+    var editButton = document.createElement('Button');
+    // deleteButton.textContent = 'Delete';
+    editButton.className = 'editButton';
+    editButton.id = id;
+    var editIcon = document.createElement('i');
+    editIcon.className = 'fas fa-pencil-alt';
+    editIcon.id = id;
+    // console.log(deleteIcon);
+    // console.log(deleteButton);
+    editButton.appendChild(editIcon);
+    return editButton;
+  },
+  createToggleButton: function(id){
+    var toggleButton = document.createElement('Button');
+    // deleteButton.textContent = 'Delete';
+    toggleButton.className = 'toggleButton';
+    toggleButton.id = id;
+    var toggleIcon = document.createElement('i');
+    toggleIcon.className = 'far fa-check-circle';
+    toggleIcon.id = id;
+    // console.log(deleteIcon);
+    // console.log(deleteButton);
+    toggleButton.appendChild(toggleIcon);
+    return toggleButton;
   }
 };
 
