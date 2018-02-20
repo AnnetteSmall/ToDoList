@@ -1,0 +1,38 @@
+/**
+ * index.scss
+ * - Add any styles you want here!
+ */
+
+body {
+  background: #f5f5f5;
+  font-family: 'Marck Script', cursive;
+  font-size: 25px;
+}
+
+button {
+  background-color: blue;
+  border-radius:5px;
+  border:darkblue;
+  color: white;
+  font-weight:bold;
+  padding: 5px;
+}
+.deleteButton{
+  float:right;
+}
+input {
+  border-radius: 5px;
+  padding: 5px;
+  width: 350px;
+}
+#updatePosition,
+#deletePosition,
+#toggleTodoPosition {
+  width: 50px;
+}
+#newTodo  {
+  width: 278px;
+}
+li {
+  width: 400px;
+}

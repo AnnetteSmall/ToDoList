@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <!--  Meta  -->
+  <meta charset="UTF-8" />
+  <title>My New Pen!</title>
+
+  <!--  Styles  -->
+  <link rel="stylesheet" href="styles/index.css">
+
+  <script defer src="https://use.fontawesome.com/releases/v5.0.4/js/all.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Fredericka+the+Great|Macondo|Marck+Script" rel="stylesheet">
+</head>
+
+<body>
+  <h1>Todo List</h1>
+<!--    This is one way to do it, but long and alot of code-->
+<!--     <button id="displayTodoListButton">Display Todo's</button>
+    <button id="toggleAllButton">Toggle All</button> -->
+  <div>
+    <button onclick="view.displayTodos()"><i class="fas fa-list-ul"></i></button>
+    <button onclick="handlers.toggleAll()"><i class="far fa-check-circle"></i></button>
+    </div><br>
+<!--   <div>
+    <button onclick="handlers.deleteTodo()"><i class="fas fa-trash-alt"></i></button>
+    <input id="deletePosition" type="number">
+  </div><br> -->
+  <div>
+    <button onclick="handlers.toggleTodo()"><i class="far fa-check-circle"></i></button>
+      <input id="toggleTodoPosition" type="number">
+  </div><br>
+  <div id="edit">
+    <button onclick="handlers.updateTodo()"><i class="fas fa-pencil-alt"></i></button>
+    <input id="updatePosition" type="number">
+    <input id="newTodo" type="text">
+  </div><br>
+  <div>
+    <button onclick="handlers.addTodo()"><i class="fas fa-plus"></i></button>
+    <input id="addTodoTextInput" type="text">
+  </div>
+  <div>
+    <ul>
+
+    </ul>
+  </div>
+ <!-- links -->
+
+<!--   <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3D767316266795973%26id%3D637201173140817&width=500" width="500" height="467" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" data-show-text="false" data-width="350px"></iframe> -->
+
+
+    <!-- Load Facebook SDK for JavaScript -->
+<!--   <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+
+   <!-- Your share button code -->
+<!--  <div class="fb-share-button"
+    data-href="https://www.your-domain.com/your-page.html"
+    data-layout="button_count">
+    <button></button>
+  </div>  -->
+
+  <script src="scripts/index.js"></script>
+
+
+</body>
+
+</html>
