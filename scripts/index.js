@@ -58,21 +58,33 @@ var todoList = {
   toggleAll: function(){
     var totalTodos = this.todos.length;
     var completedTodos = 0;
-    for (var i = 0; i < totalTodos; i++){
-      if (this.todos[i].completed === true){
-        completedTodos ++;
-          }
-    };
-    if (completedTodos === totalTodos){
-      for (var i = 0; i < totalTodos; i ++){
-        this.todos[i].completed = false;
+    // for (var i = 0; i < totalTodos; i++){
+    //   if (this.todos[i].completed === true){
+    //     completedTodos ++;
+    //       }
+    // };
+    // Replace for loop with forEach
+    this.todos.forEach(function(todo){
+      if (todo.completed === true){
+        completedTodos++
       }
+    });
+  //   if (completedTodos === totalTodos){
+  //     this.todos.forEach(function(todo){
+  //       todo.completed = false;
+  //     })
+  //   } else {
+  //     this.todos.forEach(function(todo){
+  //       todo.completed = true;
+  //     })
+  // }
+  this.todos.forEach(function(todo){
+    if (completedTodos === totalTodos){
+      todo.completed = false;
     } else {
-      for (var i = 0; i < totalTodos; i ++){
-        this.todos[i].completed = true;
+      todo.completed = true;
     }
-
-  }
+  });
     // this.displayTodos();
 },
   toggleTodo(position){
@@ -140,23 +152,22 @@ var view = {
   displayTodos: function(){
     var todoUL = document.querySelector('ul');
     todoUL.innerHTML = '';
-    for (var i = 0; i < todoList.todos.length; i++){
-        var todo = todoList.todos[i]
-        // Create the list item <li></li>
-        var todoLi = document.createElement('li');
-        if (todo.completed === true ) {
-          todoTextWithCompletion = " (x) " + todo.todoText
-        } else {
-          todoTextWithCompletion = " ( ) " + todo.todoText
-        }
-        todoLi.id = i;
-        todoLi.textContent = todoTextWithCompletion;
-        todoLi.appendChild(this.createDeleteButton(i));
-        todoLi.appendChild(this.createEditButton(i));
-        todoLi.appendChild(this.createToggleButton(i));
-        todoUL.appendChild(todoLi);
-
-    }
+    // to use 'this' with forEach you need to pass it into the forEach function
+    todoList.todos.forEach(function(todo, position){
+      var todoLi = document.createElement('li');
+      var todoTextWithCompletion ='';
+      if (todo.completed === true ) {
+            todoTextWithCompletion = " (x) " + todo.todoText
+          } else {
+            todoTextWithCompletion = " ( ) " + todo.todoText
+          }
+          todoLi.id = position;
+          todoLi.textContent = todoTextWithCompletion;
+          todoLi.appendChild(this.createDeleteButton(position));
+          todoLi.appendChild(this.createEditButton(position));
+          todoLi.appendChild(this.createToggleButton(position));
+          todoUL.appendChild(todoLi);
+    }, this);
   },
   createDeleteButton: function(id){
     var deleteButton = document.createElement('Button');
@@ -216,5 +227,10 @@ todosUl.addEventListener('click', function(event){
     //Run handlers.deleteTodo.
     // console.log('id :',event.target.parentNode.id);
     handlers.deleteTodo(parseInt(elementClicked.parentNode.id));
+  } else if (elementClicked.className === 'editButton') {
+    console.log("edit note");
+
+  } else if (elementClicked.className === 'toggleButton') {
+    console.log("Toggle note done / not done")
   }
 })

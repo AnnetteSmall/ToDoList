@@ -17,6 +17,7 @@ button {
   font-weight:bold;
   padding: 5px;
   margin-left: 10px;
+  /* display: block; */
 }
 .deleteButton,
 .editButton,
@@ -38,4 +39,7 @@ input {
 }
 li {
   width: 400px;
+}
+i {
+  display: block;
 }
